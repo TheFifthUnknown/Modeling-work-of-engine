@@ -17,7 +17,6 @@ namespace TestTaskProgrammerForward
             var engine = creator.GetEngine("Data.json", TypesOfEngins.InternalCombucstion);
             
             Stand stand = new Stand();
-            stand.RunTest();
             /*
             engine.Attach(stand);
             engine.LaunchSimulation();
