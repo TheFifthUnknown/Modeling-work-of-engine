@@ -5,6 +5,7 @@ namespace TestTaskProgrammerForward.Interfaces
 {
     public interface IEngine
     {
+        public bool Run { get; set; }
         public TypesOfEngins TypesOfEngins {get; set;}
         public void LaunchSimulation();
 

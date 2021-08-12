@@ -11,6 +11,7 @@ namespace TestTaskProgrammerForward.Engines
     public class ElectricEngine : IEngine
     {
         public TypesOfEngins TypesOfEngins { get; set; }
+        public bool Run { get; set; }
 
         public void LaunchSimulation()
         {

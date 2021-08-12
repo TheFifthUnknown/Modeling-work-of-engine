@@ -5,11 +5,7 @@ namespace TestTaskProgrammerForward.Interfaces
 {
     public interface IStand
     {
-        internal void RunTest(IEngine engine)
-        {
-            engine.Attach(this);
-            engine.LaunchSimulation();
-        }
+        public void RunTest(IEngine engine);
         public void Update(IEngine Engine);
     }
 }
