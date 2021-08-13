@@ -7,7 +7,10 @@ namespace TestTaskProgrammerForward.Model
 {
     public class InternalCombucstionEngine : IEngine
     {
-        public IStand _stand = null;
+        private int index = 0;
+        private IStand _stand = null; // Stand observer
+
+        #region Params
         public int timeRun = 0;
         public bool Run { get; set; } = false;
         public double I { get; set; } //  Момент инерции двигателя
@@ -19,25 +22,46 @@ namespace TestTaskProgrammerForward.Model
         public double C { get; set; } // Коэффициент зависимости скорости охлаждения от температуры двигателя и окружающей среды
         public double TEngine { get; set; } // температура двигателя
         public double TAir { get; set; } // температура воздуха
-     
         public TypesOfEngins TypesOfEngins { get; set; }
+
+        #endregion
+
+        
+        public InternalCombucstionEngine() { }
+        
         private double FindVc() => C * (TAir - TEngine);
-        private double FindVh(int index) => M[index] * Hm + Math.Pow(V[index], 2) * Hv;
-        public void LaunchSimulation()
+        private double FindVh() => M[index] * Hm + Math.Pow(V[index], 2) * Hv;
+        public void LaunchSimulation(double _tAir)
         {
             Run = true;
             timeRun = 0;
+
+            TAir = _tAir;
             TEngine = TAir;
-            double eps = TAir - TEngine; 
-            double a = M[0] / I;
+            
+            double v = V[0];
+            double m = M[0]; 
+            double a = m / I;
+
             while (Run)
             {
-
-            }
-           // this.Notify();
-        }
-
-        
+                timeRun++;
+                v += a;
+                
+                if (index < M.Length - 2)
+                {
+                    index += v < M[index + 1] ? 0 : 1;
+                }
+                
+                double up = v - V[index];
+                double down = V[index + 1] - V[index];
+                double factor = M[index + 1] - M[index];
+                m = up / down * factor + M[index];
+                TEngine += FindVc() + FindVh();
+                a = m / I;
+                Notify();
+            } 
+        }        
 
         #region Observer
 

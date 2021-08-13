@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TestTaskProgrammerForward.Enum;
 using TestTaskProgrammerForward.Interfaces;
 
@@ -13,7 +9,7 @@ namespace TestTaskProgrammerForward.Engines
         public TypesOfEngins TypesOfEngins { get; set; }
         public bool Run { get; set; }
 
-        public void LaunchSimulation()
+        public void LaunchSimulation(double tAir)
         {
             throw new NotImplementedException();
         }

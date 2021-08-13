@@ -7,7 +7,7 @@ namespace TestTaskProgrammerForward.Interfaces
     {
         public bool Run { get; set; }
         public TypesOfEngins TypesOfEngins {get; set;}
-        public void LaunchSimulation();
+        public void LaunchSimulation(double tAir);
 
         #region Observer
         // Присоединяет наблюдателя к издателю.

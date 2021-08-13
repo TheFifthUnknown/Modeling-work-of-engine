@@ -9,19 +9,16 @@ namespace TestTaskProgrammerForward
     {
         public static void Main(string[] args)
         {
-            //Console.WriteLine("input ambient temperature");
-            //double _temp = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("input ambient temperature");
+            double _temp = Convert.ToDouble(Console.ReadLine());
             
             CreatorEngine creator = new CreatorEngine();
+            var engine = creator.GetEngine("Data.json", TypesOfEngins.InternalCombucstion); // Data.json лежит в папке debug
             
-            var engine = creator.GetEngine("Data.json", TypesOfEngins.InternalCombucstion);
+            Stand stand = new Stand(new List<TypesOfTests>() { TypesOfTests.CriticalTemperature });
             
-            Stand stand = new Stand();
-            /*
             engine.Attach(stand);
-            engine.LaunchSimulation();
-            */
-            
+            stand.RunTest(engine, _temp);
 
         }
     }
