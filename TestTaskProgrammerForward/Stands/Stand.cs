@@ -52,9 +52,6 @@ namespace TestTaskProgrammerForward
                     ((engine.timeRun < MaxTime) ?
                     "The engine did not pass the test, time = " + engine.timeRun + " sec"
                     : "The engine passed the test"));
-
-                Console.WriteLine(engine.T);
-                Console.WriteLine(engine.TEngine);
             }
         }
         private void CriticalTemp(ElectricEngine engine)
