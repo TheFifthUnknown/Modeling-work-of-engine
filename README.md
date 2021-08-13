@@ -1,4 +1,4 @@
-## TestTaskProgrammerForward
+## TestTaskProgrammerForward - file "Тестовое задание Программист - Forward"
 
 Язык программирования: C++ либо C#
 Среда выполнения: Microsoft Visual Studio
