@@ -34,7 +34,7 @@ namespace TestTaskProgrammerForward
    
             try
             {
-                engine = creator.GetEngine("Data.json", TypesOfEngins.InternalCombucstion); // Data.json лежит в папке debug
+                engine = creator.GetEngine("../../../Data.json", TypesOfEngins.InternalCombucstion);
             }
             catch(Exception e)
             {
